@@ -121,6 +121,10 @@ namespace DataStructures
                 backingArray[index] = default(T);
                 count -= 1;
             }
+            else
+            {
+                throw new IndexOutOfRangeException("You tried to remove an element from an invalid index position");
+            }
         }
 
         public void Insert(T element, int index)

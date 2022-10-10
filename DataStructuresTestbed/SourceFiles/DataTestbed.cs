@@ -29,6 +29,7 @@ namespace DataStructuresTestbed
             ClearTest();
         }
 
+        #region DATA_STRUCTURE_TESTS
         void AdditionTest()
         {
             Console.WriteLine("Before for loop:");
@@ -67,7 +68,7 @@ namespace DataStructuresTestbed
             Console.WriteLine(arrayList.Find(65));
 
             Console.WriteLine();
-            Console.WriteLine("Find test - searched for the 265th");
+            Console.WriteLine("Find test - searched for 265");
             Console.WriteLine(arrayList.Find(265));
 
             PrintArrayListInfo();
@@ -106,13 +107,39 @@ namespace DataStructuresTestbed
             {
                 Console.WriteLine("Index was outside of bounds");
             }
+
+            PrintArrayListInfo();
         }
 
         void RemoveTest()
         {
             Console.WriteLine();
 
+            Console.WriteLine("Removed element at 50th index");
+            arrayList.Remove(50);
+            PrintArrayListInfo();
 
+            try
+            {
+                Console.WriteLine("Removed element at 150th index - throws IndexOutOfBoundsException");
+                arrayList.Remove(150);
+                PrintArrayListInfo();
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+            }
+
+            try
+            {
+                Console.WriteLine("Removed element at -100th index - throws IndexOutOfBoundsException");
+                arrayList.Remove(-100);
+                PrintArrayListInfo();
+            }
+            catch (IndexOutOfRangeException)
+            {
+
+            }
         }
 
         void ClearTest()
@@ -125,8 +152,11 @@ namespace DataStructuresTestbed
 
         void PrintArrayListInfo()
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"Length (Max size until resize): {arrayList.Length}");
             Console.WriteLine($"Count (Actual contents): {arrayList.Count}");
+            Console.ForegroundColor = ConsoleColor.White;
         }
+        #endregion
     }
 }
