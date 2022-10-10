@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="DataStructures">
+      <HintPath>..\DataStructures\bin\Debug\DataStructures.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
