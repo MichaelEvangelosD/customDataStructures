@@ -24,6 +24,8 @@ namespace DataStructuresTestbed
 
             GetTest();
 
+            RemoveTest();
+
             ClearTest();
         }
 
@@ -85,6 +87,15 @@ namespace DataStructuresTestbed
                 Console.WriteLine("Index was outside of bounds");
             }
 
+            try
+            {
+                Console.WriteLine("Get test - asked for the 100th element");
+                Console.WriteLine(arrayList.Get(100));
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("Index was outside of bounds");
+            }
 
             try
             {
@@ -95,6 +106,13 @@ namespace DataStructuresTestbed
             {
                 Console.WriteLine("Index was outside of bounds");
             }
+        }
+
+        void RemoveTest()
+        {
+            Console.WriteLine();
+
+
         }
 
         void ClearTest()
