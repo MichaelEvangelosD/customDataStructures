@@ -129,7 +129,33 @@ namespace DataStructures
 
         public void Insert(T element, int index)
         {
-            throw new NotImplementedException();
+            if (index >= 0 && index < backingArray.Length)
+            {
+                if (Count + 1 > backingArray.Length)
+                {
+                    ResizeBackingArray();
+                }
+
+                T[] tempArray = new T[backingArray.Length - index];
+
+                for (int i = index; i < tempArray.Length; i++)
+                {
+                    tempArray[i] = backingArray[i];
+                }
+
+                backingArray[index] = element;
+
+                for (int i = index; i < tempArray.Length; i++)
+                {
+                    backingArray[i + 1] = tempArray[i];
+                }
+
+                count++;
+            }
+            else
+            {
+                throw new IndexOutOfRangeException();
+            }
         }
         #endregion
 

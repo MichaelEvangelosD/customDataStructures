@@ -13,8 +13,8 @@ namespace DataStructuresTestbed
 
         void RunDataStructureTest()
         {
-            arrayList = new ArrayList<int>();
-            Console.WriteLine("Created a default sized (50) ArrayList(custom)\n");
+            arrayList = new ArrayList<int>(1000);
+            Console.WriteLine("Created a 1000 sized ArrayList(custom)\n");
 
             AdditionTest();
 
@@ -24,6 +24,8 @@ namespace DataStructuresTestbed
 
             GetTest();
 
+            InsertTest();
+
             RemoveTest();
 
             ClearTest();
@@ -32,16 +34,20 @@ namespace DataStructuresTestbed
         #region DATA_STRUCTURE_TESTS
         void AdditionTest()
         {
-            Console.WriteLine("Before for loop:");
+            int numsToAdd = 150;
+
+            Console.WriteLine("Before the for loop:");
             PrintArrayListInfo();
 
-            for (int i = 0; i < 150; i++)
+            for (int i = 0; i < numsToAdd; i++)
             {
                 arrayList?.Add(i);
             }
 
+            Console.WriteLine($"Added {numsToAdd} numbers to the ArrayList");
+
             Console.WriteLine();
-            Console.WriteLine("After for loop:");
+            Console.WriteLine("After the for loop:");
             PrintArrayListInfo();
         }
 
@@ -111,18 +117,32 @@ namespace DataStructuresTestbed
             PrintArrayListInfo();
         }
 
+        void InsertTest()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Insert test - inserting 100 at 50th element");
+            arrayList?.Insert(100, 50);
+
+            Console.WriteLine("Insert test - inserting 2500 at 154th element");
+            arrayList?.Insert(2500, 154);
+
+            PrintArrayListInfo();
+        }
+
         void RemoveTest()
         {
             Console.WriteLine();
 
-            Console.WriteLine("Removed element at 50th index");
+            Console.WriteLine($"Removed element at 50th index {arrayList?[50]}");
             arrayList?.Remove(50);
+            Console.WriteLine($"New element at 50th index: {arrayList?[50]}");
+
             PrintArrayListInfo();
 
             try
             {
-                Console.WriteLine("Removed element at 150th index - throws IndexOutOfBoundsException");
-                arrayList?.Remove(150);
+                Console.WriteLine("Removed element at 1500th index - throws IndexOutOfBoundsException");
+                arrayList?.Remove(1500);
                 PrintArrayListInfo();
             }
             catch (IndexOutOfRangeException)
