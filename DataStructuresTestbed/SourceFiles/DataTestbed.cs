@@ -127,7 +127,7 @@ namespace DataStructuresTestbed
             }
             catch (IndexOutOfRangeException)
             {
-
+                //nop...
             }
 
             try
@@ -138,7 +138,7 @@ namespace DataStructuresTestbed
             }
             catch (IndexOutOfRangeException)
             {
-
+                //nop...
             }
         }
 
