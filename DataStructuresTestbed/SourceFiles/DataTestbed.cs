@@ -13,8 +13,8 @@ namespace DataStructuresTestbed
 
         void RunDataStructureTest()
         {
-            arrayList = new ArrayList<int>(1000);
-            Console.WriteLine("Created a 1000 sized ArrayList(custom)\n");
+            arrayList = new ArrayList<int>(50);
+            Console.WriteLine("Created a 50 sized ArrayList(custom)\n");
 
             AdditionTest();
 
@@ -34,7 +34,7 @@ namespace DataStructuresTestbed
         #region DATA_STRUCTURE_TESTS
         void AdditionTest()
         {
-            int numsToAdd = 150;
+            int numsToAdd = 100000;
 
             Console.WriteLine("Before the for loop:");
             PrintArrayListInfo();

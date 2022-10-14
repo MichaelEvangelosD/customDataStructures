@@ -47,10 +47,8 @@ namespace DataStructures
         void ResizeBackingArray()
         {
             T[] tempArray = new T[backingArray.Length + capacityIncrement];
-            for (int i = 0; i < backingArray.Length; i++)
-            {
-                tempArray[i] = backingArray[i];
-            }
+
+            backingArray.CopyTo(tempArray, 0);
 
             backingArray = tempArray;
         }
