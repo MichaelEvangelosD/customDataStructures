@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            new DataTestbed().ExecArrayListTests();
+            new DataTestbed().ExecLinkedListTests();
         }
 
         void ExecArrayListTests()
@@ -15,7 +15,8 @@
 
         void ExecLinkedListTests()
         {
-
+            LinkedListTester linkedListTester = new LinkedListTester();
+            linkedListTester.RunDataStructureTest();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace DataStructures
+﻿using System;
+
+namespace DataStructures
 {
     public class LinkedList<T> : IList<T>
     {
@@ -25,7 +27,25 @@
 
         public void Insert(T element, int index)
         {
-            throw new System.NotImplementedException();
+            if (index < 0 || index > Count())
+            {
+                throw new ArgumentException();
+            }
+
+            int counter = 0;
+            Node currentNode = startNode;
+            while (currentNode.NextNode != null)
+            {
+                if (counter == index)
+                {
+                    //do swap here...
+                    break;
+                }
+
+                //Move to next node
+                currentNode = currentNode.NextNode;
+                counter++;
+            }
         }
 
         public void Remove(int index)
@@ -55,7 +75,37 @@
 
         public int Count()
         {
-            throw new System.NotImplementedException();
+            if (startNode == null)
+            {
+                return 0;
+            }
+
+            int counter = 1;
+            Node currentNode = startNode;
+            while (currentNode.NextNode != null)
+            {
+                currentNode = currentNode.NextNode;
+                counter++;
+            }
+
+            return counter;
+        }
+
+        public string ToString(string delimeter = ",")
+        {
+            string s = "[";
+            Node currentNode = startNode;
+
+            if (startNode != null)
+            {
+                while (currentNode.NextNode != null)
+                {
+                    s += delimeter + currentNode.Element.ToString();
+                }
+            }
+            s += "]";
+
+            return s;
         }
     }
 }
