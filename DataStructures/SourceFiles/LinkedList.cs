@@ -72,7 +72,25 @@ namespace DataStructures
 
         public int Find(T element)
         {
-            throw new System.NotImplementedException();
+            if (Count() == 0)
+            {
+                throw new ArgumentException();
+            }
+
+            int counter = 1;
+            Node tempNode = startNode;
+            while (tempNode != null)
+            {
+                if (tempNode.Element.Equals(element))
+                {
+                    return counter;
+                }
+
+                tempNode = tempNode.NextNode;
+                counter++;
+            }
+
+            return -1;
         }
 
         public T Get(int index)
