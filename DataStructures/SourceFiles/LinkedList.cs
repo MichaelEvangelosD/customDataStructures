@@ -72,7 +72,25 @@ namespace DataStructures
 
         public void Remove(int index)
         {
-            throw new System.NotImplementedException();
+            if (index < 0 || index > Count())
+            {
+                throw new ArgumentException();
+            }
+
+            int counter = 0;
+            Node currentNode = startNode;
+            while (currentNode != null)
+            {
+                if (counter == index - 1)
+                {
+                    currentNode.NextNode = currentNode.NextNode.NextNode;
+                    break;
+                }
+
+                //Move to next node
+                currentNode = currentNode.NextNode;
+                counter++;
+            }
         }
 
         public int Find(T element)
