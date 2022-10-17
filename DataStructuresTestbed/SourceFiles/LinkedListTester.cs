@@ -13,10 +13,11 @@ namespace DataStructuresTestbed
             linkedList.Add(2);
             linkedList.Add(1);
             linkedList.Add(2);
-            linkedList.Add(1);
+            linkedList.Add(4);
 
 
-            Console.WriteLine(linkedList.Find(1));
+            Console.WriteLine("Index of number 1: " + linkedList.Find(1));
+            Console.WriteLine("Item at index 1: " + linkedList.Get(1));
             PrintLinkedList();
         }
 

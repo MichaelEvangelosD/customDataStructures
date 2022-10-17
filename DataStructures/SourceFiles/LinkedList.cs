@@ -95,7 +95,28 @@ namespace DataStructures
 
         public T Get(int index)
         {
-            throw new System.NotImplementedException();
+            int cnt = Count();
+
+            if (cnt == 0 || index > cnt)
+            {
+                throw new ArgumentException();
+            }
+
+            int counter = 1;
+            Node tempNode = startNode;
+
+            while (tempNode != null && counter <= index)
+            {
+                if (counter == index)
+                {
+                    break;
+                }
+
+                tempNode = tempNode.NextNode;
+                counter++;
+            }
+
+            return tempNode.Element;
         }
 
         public bool Contains(T element)
