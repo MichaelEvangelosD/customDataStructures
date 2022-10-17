@@ -4,7 +4,7 @@ namespace DataStructuresTestbed
 {
     public class DataTestbed
     {
-        static ArrayList<int>? arrayList;
+        static ArrayList<int> arrayList;
 
         static void Main(string[] args)
         {
@@ -34,20 +34,20 @@ namespace DataStructuresTestbed
         #region DATA_STRUCTURE_TESTS
         void AdditionTest()
         {
-            int numsToAdd = 100000;
+            int numsToAdd = 100;
 
-            Console.WriteLine("Before the for loop:");
+            Console.WriteLine("Before addition:");
             PrintArrayListInfo();
 
             for (int i = 0; i < numsToAdd; i++)
             {
-                arrayList?.Add(i);
+                arrayList.Add(i);
             }
 
             Console.WriteLine($"Added {numsToAdd} numbers to the ArrayList");
 
             Console.WriteLine();
-            Console.WriteLine("After the for loop:");
+            Console.WriteLine("After addition:");
             PrintArrayListInfo();
         }
 
@@ -55,11 +55,11 @@ namespace DataStructuresTestbed
         {
             Console.WriteLine();
             Console.WriteLine("Contains test (Searched for 200)");
-            Console.WriteLine(arrayList?.Contains(200));
+            Console.WriteLine(arrayList.Contains(200));
 
             Console.WriteLine();
-            Console.WriteLine("Contains test (Searched for 100)");
-            Console.WriteLine(arrayList?.Contains(100));
+            Console.WriteLine("Contains test (Searched for 9)");
+            Console.WriteLine(arrayList.Contains(9));
 
         }
 
@@ -67,15 +67,15 @@ namespace DataStructuresTestbed
         {
             Console.WriteLine();
             Console.WriteLine("Find test - searched for -10");
-            Console.WriteLine(arrayList?.Find(-10));
+            Console.WriteLine(arrayList.Find(-10));
 
             Console.WriteLine();
             Console.WriteLine("Find test - searched for 65");
-            Console.WriteLine(arrayList?.Find(65));
+            Console.WriteLine(arrayList.Find(65));
 
             Console.WriteLine();
             Console.WriteLine("Find test - searched for 265");
-            Console.WriteLine(arrayList?.Find(265));
+            Console.WriteLine(arrayList.Find(265));
 
             PrintArrayListInfo();
         }
@@ -84,35 +84,8 @@ namespace DataStructuresTestbed
         {
             Console.WriteLine();
 
-            try
-            {
-                Console.WriteLine("Get test - asked for the -10th element");
-                Console.WriteLine(arrayList?.Get(-10));
-            }
-            catch (IndexOutOfRangeException)
-            {
-                Console.WriteLine("Index was outside of bounds");
-            }
-
-            try
-            {
-                Console.WriteLine("Get test - asked for the 100th element");
-                Console.WriteLine(arrayList?.Get(100));
-            }
-            catch (IndexOutOfRangeException)
-            {
-                Console.WriteLine("Index was outside of bounds");
-            }
-
-            try
-            {
-                Console.WriteLine("Get test - asked for the 350th element");
-                Console.WriteLine(arrayList?.Get(350));
-            }
-            catch (IndexOutOfRangeException)
-            {
-                Console.WriteLine("Index was outside of bounds");
-            }
+            Console.WriteLine("Get test - asked for the 50th element");
+            Console.WriteLine(arrayList.Get(50));
 
             PrintArrayListInfo();
         }
@@ -121,10 +94,7 @@ namespace DataStructuresTestbed
         {
             Console.WriteLine();
             Console.WriteLine("Insert test - inserting 100 at 50th element");
-            arrayList?.Insert(100, 50);
-
-            Console.WriteLine("Insert test - inserting 2500 at 154th element");
-            arrayList?.Insert(2500, 154);
+            arrayList.Insert(100, 50);
 
             PrintArrayListInfo();
         }
@@ -133,38 +103,16 @@ namespace DataStructuresTestbed
         {
             Console.WriteLine();
 
-            Console.WriteLine($"Removed element at 50th index {arrayList?[50]}");
-            arrayList?.Remove(50);
-            Console.WriteLine($"New element at 50th index: {arrayList?[50]}");
+            Console.WriteLine($"Removed element at 50th index {arrayList[50]}");
+            arrayList.Remove(50);
+            Console.WriteLine($"New element at 50th index: {arrayList[50]}");
 
             PrintArrayListInfo();
-
-            try
-            {
-                Console.WriteLine("Removed element at 1500th index - throws IndexOutOfBoundsException");
-                arrayList?.Remove(1500);
-                PrintArrayListInfo();
-            }
-            catch (IndexOutOfRangeException)
-            {
-                //nop...
-            }
-
-            try
-            {
-                Console.WriteLine("Removed element at -100th index - throws IndexOutOfBoundsException");
-                arrayList?.Remove(-100);
-                PrintArrayListInfo();
-            }
-            catch (IndexOutOfRangeException)
-            {
-                //nop...
-            }
         }
 
         void ClearTest()
         {
-            arrayList?.Clear();
+            arrayList.Clear();
             Console.WriteLine();
             Console.WriteLine("After clear");
             PrintArrayListInfo();
@@ -173,8 +121,10 @@ namespace DataStructuresTestbed
         void PrintArrayListInfo()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"Length (Max size until resize): {arrayList?.Length}");
-            Console.WriteLine($"Count (Actual contents): {arrayList?.Count}");
+            Console.WriteLine($"Length (Max size until resize): {arrayList.Length}");
+            Console.WriteLine($"Count (Actual contents): {arrayList.Count}");
+
+            Console.WriteLine("List contents: " + arrayList.ToString(","));
             Console.ForegroundColor = ConsoleColor.White;
         }
         #endregion

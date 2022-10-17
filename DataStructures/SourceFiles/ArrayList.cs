@@ -44,30 +44,27 @@ namespace DataStructures
             count = 0;
         }
 
-        void ResizeBackingArray()
+        void ResizeBackingArrayIfNedeed()
         {
-            T[] tempArray = new T[backingArray.Length + capacityIncrement];
+            if (count == backingArray.Length)
+            {
 
-            backingArray.CopyTo(tempArray, 0);
+                T[] tempArray = new T[backingArray.Length + capacityIncrement];
 
-            backingArray = tempArray;
+                backingArray.CopyTo(tempArray, 0);
+
+                backingArray = tempArray;
+            }
         }
         #endregion
 
         #region SERVICES
         public void Add(T element)
         {
-            try
-            {
-                backingArray[count] = element;
-                count++;
-            }
-            catch (IndexOutOfRangeException)
-            {
-                ResizeBackingArray();
+            ResizeBackingArrayIfNedeed();
 
-                Add(element);
-            }
+            backingArray[count] = element;
+            count++;
         }
 
         public void Clear()
@@ -89,7 +86,7 @@ namespace DataStructures
 
         public int Find(T element)
         {
-            for (int i = 0; i < backingArray.Length; i++)
+            for (int i = 0; i <= count - 1; i++)
             {
                 if (backingArray[i].Equals(element))
                 {
@@ -104,56 +101,44 @@ namespace DataStructures
         {
             if (index > backingArray.Length || index < 0)
             {
-                throw new IndexOutOfRangeException();
+                throw new ArgumentException();
             }
-            else
-            {
-                return backingArray[index];
-            }
+
+            return backingArray[index];
         }
 
         public void Remove(int index)
         {
-            if (index >= 0 && index < backingArray.Length)
+            if (index < 0 || index > count - 1)
             {
-                backingArray[index] = default(T);
-                count -= 1;
+                throw new ArgumentException();
             }
-            else
+
+            for (int i = index; i <= count - 2; i++)
             {
-                throw new IndexOutOfRangeException("You tried to remove an element from an invalid index position");
+                backingArray[i] = backingArray[i + 1];
             }
+
+            count--;
         }
 
         public void Insert(T element, int index)
         {
-            if (index >= 0 && index < backingArray.Length)
+            if (index < 0 && index > count)
             {
-                if (Count + 1 > backingArray.Length)
-                {
-                    ResizeBackingArray();
-                }
-
-                T[] tempArray = new T[backingArray.Length - index];
-
-                for (int i = index; i < tempArray.Length; i++)
-                {
-                    tempArray[i] = backingArray[i];
-                }
-
-                backingArray[index] = element;
-
-                for (int i = index; i < tempArray.Length; i++)
-                {
-                    backingArray[i + 1] = tempArray[i];
-                }
-
-                count++;
+                throw new ArgumentException();
             }
-            else
+
+            ResizeBackingArrayIfNedeed();
+
+            for (int i = count - 1; i >= index; i--)
             {
-                throw new IndexOutOfRangeException();
+                backingArray[i + 1] = backingArray[i];
             }
+
+            backingArray[index] = element;
+
+            count++;
         }
         #endregion
 
@@ -164,6 +149,28 @@ namespace DataStructures
             {
                 return (T)backingArray[i];
             }
+        }
+
+        public string ToString(string delimeter = ",")
+        {
+
+            string s = "[";
+
+            if (count > 0)
+            {
+                s += backingArray[0];
+                if (count > 1)
+                {
+                    for (int i = 1; i <= count - 1; i++)
+                    {
+                        s += delimeter + backingArray[i];
+                    }
+                }
+            }
+
+            s += "]";
+
+            return s;
         }
         #endregion
     }
