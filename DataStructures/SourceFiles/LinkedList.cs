@@ -38,7 +38,7 @@ namespace DataStructures
             {
                 if (counter == index)
                 {
-                    //do swap here...
+                    //do swap here..
                     break;
                 }
 
