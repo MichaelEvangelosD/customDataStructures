@@ -18,6 +18,8 @@ namespace DataStructuresTestbed
 
             Console.WriteLine("Index of number 1: " + linkedList.Find(1));
             Console.WriteLine("Item at index 1: " + linkedList.Get(1));
+            Console.WriteLine("Does number 15 exist in LL?: " + linkedList.Contains(15));
+            Console.WriteLine("Does number 2 exist in LL?: " + linkedList.Contains(2));
             PrintLinkedList();
         }
 

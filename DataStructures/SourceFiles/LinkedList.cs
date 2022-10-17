@@ -121,7 +121,12 @@ namespace DataStructures
 
         public bool Contains(T element)
         {
-            throw new System.NotImplementedException();
+            if (Find(element) != -1)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public void Clear()
