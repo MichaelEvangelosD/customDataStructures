@@ -45,6 +45,7 @@
     <Compile Include="SourceFiles\ArrayList.cs" />
     <Compile Include="SourceFiles\IList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SourceFiles\LinkedList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

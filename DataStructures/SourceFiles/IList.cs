@@ -15,5 +15,7 @@
         bool Contains(T element);
 
         void Clear();
+
+        int Count();
     }
 }

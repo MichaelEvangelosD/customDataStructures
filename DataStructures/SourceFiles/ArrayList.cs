@@ -8,14 +8,6 @@ namespace DataStructures
         int count = 0;
         int capacityIncrement = 100;
 
-        public int Count
-        {
-            get
-            {
-                return count;
-            }
-        }
-
         public int Length
         {
             get
@@ -140,6 +132,8 @@ namespace DataStructures
 
             count++;
         }
+
+        public int Count() => count;
         #endregion
 
         #region INTERNAL_OVERLOADS
