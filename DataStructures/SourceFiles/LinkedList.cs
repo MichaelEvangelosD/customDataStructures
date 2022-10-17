@@ -51,11 +51,16 @@ namespace DataStructures
 
             int counter = 0;
             Node currentNode = startNode;
-            while (currentNode.NextNode != null)
+            while (currentNode != null)
             {
-                if (counter == index)
+                if (counter == index - 1)
                 {
-                    //do swap here..
+                    Node cachedNode = currentNode.NextNode;
+
+                    Node newNode = new Node();
+                    newNode.Element = element;
+                    newNode.NextNode = cachedNode;
+                    currentNode.NextNode = newNode;
                     break;
                 }
 

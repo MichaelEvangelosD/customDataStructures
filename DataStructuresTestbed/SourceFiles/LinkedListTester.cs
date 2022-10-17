@@ -13,8 +13,14 @@ namespace DataStructuresTestbed
             linkedList.Add(2);
             linkedList.Add(1);
             linkedList.Add(2);
-            linkedList.Add(4);
+            linkedList.Add(36);
+            linkedList.Add(250);
+            linkedList.Add(100);
 
+            Console.WriteLine("Inserting 1050 at index 3");
+            linkedList.Insert(1050, 3);
+            Console.WriteLine("Inserting 23 at index 1");
+            linkedList.Insert(23, 1);
 
             Console.WriteLine("Index of number 1: " + linkedList.Find(1));
             Console.WriteLine("Item at index 1: " + linkedList.Get(1));
