@@ -10,6 +10,9 @@ namespace DataStructuresTestbed
         {
             linkedList = new DataStructures.LinkedList<int>();
 
+            linkedList.Add(1);
+            linkedList.Add(1);
+
             PrintLinkedList();
         }
 

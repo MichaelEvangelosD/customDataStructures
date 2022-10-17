@@ -4,25 +4,42 @@ namespace DataStructures
 {
     public class LinkedList<T> : IList<T>
     {
+        Node startNode = null;
+
         private class Node
         {
             public T Element;
             public Node NextNode;
         }
 
-        Node startNode = null;
-
         public void Add(T element)
         {
-            Node tempNode = startNode;
-
-            while (tempNode.NextNode != null)
+            if (startNode == null)
             {
-                tempNode = tempNode.NextNode;
+                startNode = new Node();
+                startNode.Element = element;
+                startNode.NextNode = null;
+                return;
             }
 
-            tempNode.Element = element;
-            tempNode.NextNode = null;
+            //Caches
+            Node currentNode = startNode;
+            Node previousNode = null;
+            while (currentNode != null)
+            {
+                //Cache last node
+                previousNode = currentNode;
+
+                //Move to next node
+                currentNode = currentNode.NextNode;
+            }
+
+            Node newNode = new Node();
+            newNode.Element = element;
+            newNode.NextNode = null;
+
+            //Connect the last node with the new node
+            previousNode.NextNode = newNode;
         }
 
         public void Insert(T element, int index)
@@ -96,13 +113,24 @@ namespace DataStructures
             string s = "[";
             Node currentNode = startNode;
 
-            if (startNode != null)
+            if (currentNode == null)
             {
-                while (currentNode.NextNode != null)
-                {
-                    s += delimeter + currentNode.Element.ToString();
-                }
+                s += "]";
+                return s;
             }
+
+            if (Count() == 1)
+            {
+                s += currentNode.Element.ToString() + "]";
+                return s;
+            }
+
+            while (currentNode != null)
+            {
+                s += currentNode.Element.ToString() + delimeter;
+                currentNode = currentNode.NextNode;
+            }
+
             s += "]";
 
             return s;
