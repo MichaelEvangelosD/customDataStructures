@@ -1,4 +1,5 @@
-﻿using DataStructures;
+﻿using System;
+using DataStructures;
 
 namespace DataStructuresTestbed
 {
@@ -111,6 +112,11 @@ namespace DataStructuresTestbed
             Console.WriteLine();
             Console.WriteLine("After clear");
             PrintArrayListInfo();
+        }
+
+        void RunDataStructureStatistics()
+        {
+
         }
 
         void PrintArrayListInfo()

@@ -1,4 +1,5 @@
-﻿using DataStructures;
+﻿using System;
+using DataStructures;
 
 namespace DataStructuresTestbed
 {
@@ -35,6 +36,16 @@ namespace DataStructuresTestbed
             Console.WriteLine("Does number 15 exist in LL?: " + linkedList.Contains(15));
             Console.WriteLine("Does number 2 exist in LL?: " + linkedList.Contains(2));
             PrintLinkedList();
+        }
+
+        public void RunDataStructuresStatistics()
+        {
+            int timestToRepeat = 100000;
+
+            for (int i = 0; i < timestToRepeat; i++)
+            {
+
+            }
         }
 
         void PrintLinkedList()
