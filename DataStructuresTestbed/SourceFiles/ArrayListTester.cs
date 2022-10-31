@@ -6,11 +6,15 @@ namespace DataStructuresTestbed
     public class ArrayListTester
     {
         static ArrayList<int> arrayList;
+        static int arraySize, capacityIncrement;
 
         public void RunDataStructureTest()
         {
-            arrayList = new ArrayList<int>(50);
-            Console.WriteLine("Created a 50 sized ArrayList(custom)\n");
+            arraySize = 1000;
+            capacityIncrement = 100;
+
+            arrayList = new ArrayList<int>(arraySize, capacityIncrement);
+            Console.WriteLine("Created a {0} sized ArrayList\n with {1} capacity increments", arraySize, capacityIncrement);
 
             AdditionTest();
 
@@ -114,9 +118,50 @@ namespace DataStructuresTestbed
             PrintArrayListInfo();
         }
 
-        void RunDataStructureStatistics()
+        public void RunDataStructureStatistics()
         {
+            int reps;
+            long then, now, elapsed;
+            double elapsedMsPerCall;
 
+            // time addition...
+            Console.WriteLine("Timing addition of one element into empty list:");
+
+            reps = 10000;
+            arrayList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
+            {
+                arrayList.Add(42);
+            }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+
+            reps = 100000;
+            arrayList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
+            {
+                arrayList.Add(42);
+            }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+
+            reps = 1000000;
+            arrayList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
+            {
+                arrayList.Add(42);
+            }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
         }
 
         void PrintArrayListInfo()

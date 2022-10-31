@@ -21,10 +21,11 @@ namespace DataStructures
                 startNode = new Node();
                 startNode.Element = element;
                 startNode.NextNode = null;
+                count++;
                 return;
             }
 
-            Node previousNode = GetNodeAt(count);
+            Node previousNode = GetNodeAt(count-1);
 
             Node newNode = new Node();
             newNode.Element = element;
@@ -115,6 +116,7 @@ namespace DataStructures
         public void Clear()
         {
             startNode = null;
+            count = 0;
         }
 
         public int Count()

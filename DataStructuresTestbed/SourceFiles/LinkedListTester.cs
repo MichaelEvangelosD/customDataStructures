@@ -42,12 +42,96 @@ namespace DataStructuresTestbed
 
         public void RunDataStructuresStatistics()
         {
-            int timestToRepeat = 100000;
+            int reps;
+            long then, now, elapsed;
+            double elapsedMsPerCall;
 
-            for (int i = 0; i < timestToRepeat; i++)
+            // time addition...
+            Console.WriteLine("Timing addition of one element into empty list:");
+
+            reps = 1;
+            linkedList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
             {
-
+                linkedList.Add(42);
             }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+
+            reps = 10;
+            linkedList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
+            {
+                linkedList.Add(42);
+            }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+
+            reps = 100;
+            linkedList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
+            {
+                linkedList.Add(42);
+            }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+
+            reps = 1000;
+            linkedList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
+            {
+                linkedList.Add(42);
+            }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+
+            reps = 10000;
+            linkedList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
+            {
+                linkedList.Add(42);
+            }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+
+            reps = 100000;
+            linkedList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
+            {
+                linkedList.Add(42);
+            }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+
+            reps = 1000000;
+            linkedList.Clear();
+            then = DateTime.Now.Ticks;
+            for (int i = 0; i != reps; i++)
+            {
+                linkedList.Add(42);
+            }
+            now = DateTime.Now.Ticks;
+            elapsed = now - then;
+            elapsedMsPerCall = elapsed / 10000.0 / reps;
+            Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
         }
 
         void PrintLinkedList()

@@ -19,19 +19,20 @@ namespace DataStructures
         #region CONSTRUCTORS
         public ArrayList()
         {
-            InitBackingArray(50);
+            InitBackingArray(50, capacityIncrement);
         }
 
-        public ArrayList(int size)
+        public ArrayList(int size, int capacityIncrement)
         {
-            InitBackingArray(size);
+            InitBackingArray(size, capacityIncrement);
         }
         #endregion
 
         #region SETUP
-        void InitBackingArray(int size)
+        void InitBackingArray(int size, int capacityIncrement)
         {
             backingArray = new T[size];
+            this.capacityIncrement = capacityIncrement;
 
             count = 0;
         }
