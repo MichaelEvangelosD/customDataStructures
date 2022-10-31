@@ -6,6 +6,8 @@ namespace DataStructures
     {
         Node startNode = null;
 
+        int count = 0;
+
         private class Node
         {
             public T Element;
@@ -22,17 +24,7 @@ namespace DataStructures
                 return;
             }
 
-            //Caches
-            Node currentNode = startNode;
-            Node previousNode = null;
-            while (currentNode != null)
-            {
-                //Cache last node
-                previousNode = currentNode;
-
-                //Move to next node
-                currentNode = currentNode.NextNode;
-            }
+            Node previousNode = GetNodeAt(count);
 
             Node newNode = new Node();
             newNode.Element = element;
@@ -40,34 +32,28 @@ namespace DataStructures
 
             //Connect the last node with the new node
             previousNode.NextNode = newNode;
+
+            count++;
         }
 
         public void Insert(T element, int index)
         {
-            if (index < 0 || index > Count())
+            if (index < 0 || index > count)
             {
                 throw new ArgumentException();
             }
 
-            int counter = 0;
-            Node currentNode = startNode;
-            while (currentNode != null)
-            {
-                if (counter == index - 1)
-                {
-                    Node cachedNode = currentNode.NextNode;
+            Node currentNode = GetNodeAt(index - 1);
 
-                    Node newNode = new Node();
-                    newNode.Element = element;
-                    newNode.NextNode = cachedNode;
-                    currentNode.NextNode = newNode;
-                    break;
-                }
+            Node cachedNode = currentNode.NextNode;
+            Node newNode = new Node();
 
-                //Move to next node
-                currentNode = currentNode.NextNode;
-                counter++;
-            }
+            newNode.Element = element;
+            newNode.NextNode = cachedNode;
+
+            currentNode.NextNode = newNode;
+
+            count++;
         }
 
         public void Remove(int index)
@@ -77,25 +63,14 @@ namespace DataStructures
                 throw new ArgumentException();
             }
 
-            int counter = 0;
-            Node currentNode = startNode;
-            while (currentNode != null)
-            {
-                if (counter == index - 1)
-                {
-                    currentNode.NextNode = currentNode.NextNode.NextNode;
-                    break;
-                }
-
-                //Move to next node
-                currentNode = currentNode.NextNode;
-                counter++;
-            }
+            Node currentNode = GetNodeAt(index - 1);
+            currentNode.NextNode = currentNode.NextNode.NextNode;
+            count--;
         }
 
         public int Find(T element)
         {
-            if (Count() == 0)
+            if (count == 0)
             {
                 throw new ArgumentException();
             }
@@ -118,27 +93,12 @@ namespace DataStructures
 
         public T Get(int index)
         {
-            int cnt = Count();
-
-            if (cnt == 0 || index > cnt)
+            if (count == 0 || index > count || index < 0)
             {
                 throw new ArgumentException();
             }
 
-            int counter = 1;
-            Node tempNode = startNode;
-
-            while (tempNode != null && counter <= index)
-            {
-                if (counter == index)
-                {
-                    break;
-                }
-
-                tempNode = tempNode.NextNode;
-                counter++;
-            }
-
+            Node tempNode = GetNodeAt(index);
             return tempNode.Element;
         }
 
@@ -159,20 +119,24 @@ namespace DataStructures
 
         public int Count()
         {
-            if (startNode == null)
-            {
-                return 0;
-            }
+            return count;
+        }
 
-            int counter = 1;
+        Node GetNodeAt(int index)
+        {
+            int indexCounter = 0;
             Node currentNode = startNode;
-            while (currentNode.NextNode != null)
+            while (currentNode != null)
             {
+                if (indexCounter.Equals(index))
+                    return currentNode;
+
+                //Move to next node
                 currentNode = currentNode.NextNode;
-                counter++;
+                indexCounter++;
             }
 
-            return counter;
+            return null;
         }
 
         public string ToString(string delimeter = ",")

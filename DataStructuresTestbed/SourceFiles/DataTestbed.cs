@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             new DataTestbed().ExecLinkedListTests();
-            new DataTestbed().ExecArrayListTests();
+            //new DataTestbed().ExecArrayListTests();
         }
 
         void ExecArrayListTests()

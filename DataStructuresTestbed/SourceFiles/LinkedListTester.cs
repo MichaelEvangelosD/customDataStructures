@@ -5,11 +5,11 @@ namespace DataStructuresTestbed
 {
     public class LinkedListTester
     {
-        static DataStructures.LinkedList<int> linkedList;
+        static LinkedList<int> linkedList;
 
         public void RunDataStructureTest()
         {
-            linkedList = new DataStructures.LinkedList<int>();
+            linkedList = new LinkedList<int>();
 
             linkedList.Add(2);
             linkedList.Add(1);
@@ -21,6 +21,8 @@ namespace DataStructuresTestbed
 
             Console.WriteLine("Inserting 1050 at index 3");
             linkedList.Insert(1050, 3);
+            PrintLinkedList();
+
             Console.WriteLine("Inserting 23 at index 1");
             linkedList.Insert(23, 1);
             PrintLinkedList();
@@ -30,7 +32,7 @@ namespace DataStructuresTestbed
             PrintLinkedList();
 
             Console.WriteLine("Index of number 1: " + linkedList.Find(1));
-            Console.WriteLine("Item at index 1: " + linkedList.Get(1));
+            Console.WriteLine("Item at index 5: " + linkedList.Get(5));
             PrintLinkedList();
 
             Console.WriteLine("Does number 15 exist in LL?: " + linkedList.Contains(15));

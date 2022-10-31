@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <StartupObject>DataStructuresTestbed.DataTestbed</StartupObject>
@@ -10,6 +10,10 @@
     <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="DataStructures">
