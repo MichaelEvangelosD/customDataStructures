@@ -5,7 +5,8 @@
         static void Main(string[] args)
         {
             //new DataTestbed().ExecArrayListTests();
-            new DataTestbed().ExecLinkedListTests();
+            //new DataTestbed().ExecLinkedListTests();
+            new DataTestbed().ExecMapTests();
         }
 
         void ExecArrayListTests()
@@ -20,6 +21,13 @@
             LinkedListTester linkedListTester = new LinkedListTester();
             linkedListTester.RunDataStructureTest();
             linkedListTester.RunDataStructuresStatistics();
+        }
+
+        void ExecMapTests()
+        {
+            MapTester linkedListTester = new MapTester();
+            linkedListTester.RunDataStructureTest();
+            //linkedListTester.RunDataStructuresStatistics();
         }
     }
 }
