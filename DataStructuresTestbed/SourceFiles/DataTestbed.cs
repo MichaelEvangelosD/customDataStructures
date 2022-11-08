@@ -6,7 +6,8 @@
         {
             //new DataTestbed().ExecArrayListTests();
             //new DataTestbed().ExecLinkedListTests();
-            new DataTestbed().ExecMapTests();
+            //new DataTestbed().ExecMapTests();
+            new DataTestbed().ExecHashMapTests();
         }
 
         void ExecArrayListTests()
@@ -25,7 +26,14 @@
 
         void ExecMapTests()
         {
-            MapTester linkedListTester = new MapTester();
+            ArrayListMapTester linkedListTester = new ArrayListMapTester();
+            linkedListTester.RunDataStructureTest();
+            //linkedListTester.RunDataStructuresStatistics();
+        }
+
+        void ExecHashMapTests()
+        {
+            HashMapTester linkedListTester = new HashMapTester();
             linkedListTester.RunDataStructureTest();
             //linkedListTester.RunDataStructuresStatistics();
         }

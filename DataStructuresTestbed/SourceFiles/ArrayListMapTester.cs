@@ -3,7 +3,7 @@ using DataStructures;
 
 namespace DataStructuresTestbed
 {
-    public class MapTester
+    public class ArrayListMapTester
     {
         static ArrayListMap<string, int> arrayListMap;
 

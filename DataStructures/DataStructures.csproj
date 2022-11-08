@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="SourceFiles\ArrayList.cs" />
     <Compile Include="SourceFiles\ArrayListMap.cs" />
+    <Compile Include="SourceFiles\HashMap.cs" />
     <Compile Include="SourceFiles\IList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SourceFiles\IMap.cs" />
