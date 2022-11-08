@@ -15,6 +15,8 @@ namespace DataStructuresTestbed
             ContainsTest();
             CountTest();
             GetTests();
+            GetAllKeys();
+            GetAllKeysWithValue(5);
         }
 
         #region DATA_STRUCTURE_TESTS
@@ -43,7 +45,30 @@ namespace DataStructuresTestbed
         void GetTests()
         {
             Console.WriteLine("Getting key Nikos " + arrayListMap.Get("Nikos"));
-            Console.WriteLine("Getting key Babis " + arrayListMap.Get("Babis"));
+
+            //Throw keyNotFound
+            //Console.WriteLine("Getting key Babis " + arrayListMap.Get("Babis"));
+        }
+
+        void GetAllKeys()
+        {
+            string[] keys = arrayListMap.GetKeys();
+
+            foreach (string pair in keys)
+            {
+                Console.WriteLine("Getting all keys " + pair);
+            }
+        }
+
+        void GetAllKeysWithValue(int value)
+        {
+            string[] keys = arrayListMap.GetKeys(value);
+
+            foreach (string pair in keys)
+            {
+                if(pair!=null)
+                    Console.WriteLine($"Getting all keys with value {value} " + pair);
+            }
         }
         #endregion
     }
