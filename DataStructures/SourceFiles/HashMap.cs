@@ -47,7 +47,7 @@ namespace DataStructures
 
         public void UnSet(TKey key)
         {
-            int hash = key.GetHashCode() % data.Length;
+            uint hash = (uint)((uint)(key.GetHashCode()) % data.Length);
 
             if (data[hash] != null)
             {
@@ -101,7 +101,7 @@ namespace DataStructures
         {
             uint hash = (uint)((uint)(key.GetHashCode()) % data.Length);
 
-            if(data[hash] != null)
+            if (data[hash] != null)
             {
                 List<Tuple<TKey, TValue>> hashBucket = data[hash];
 
@@ -120,6 +120,35 @@ namespace DataStructures
             return count;
         }
 
+        public string InternalStats()
+        {
+            int min = int.MaxValue;
+            int max = int.MinValue;
+
+            int median;
+
+            List<Tuple<TKey, TValue>> value;
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                value = data[i];
+
+                if (value.Count < min)
+                {
+                    min = value.Count;
+                }
+
+                if (value.Count > max)
+                {
+                    max = value.Count;
+                }
+            }
+
+            median = (min + max) / data.Length;
+
+            return $"Min: {min} + Max {max}";
+        }
+
         public override string ToString()
         {
             return ToString(" -> ", Environment.NewLine);
@@ -131,7 +160,7 @@ namespace DataStructures
 
             for (int i = 0; i < data.Length; i++)
             {
-                if(data[i] != null)
+                if (data[i] != null)
                 {
                     //TODO:
                 }

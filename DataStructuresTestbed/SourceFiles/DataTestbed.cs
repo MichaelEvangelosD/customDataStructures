@@ -20,7 +20,7 @@
         void ExecLinkedListTests()
         {
             LinkedListTester linkedListTester = new LinkedListTester();
-            linkedListTester.RunDataStructureTest();
+            //linkedListTester.RunDataStructureTest();
             linkedListTester.RunDataStructuresStatistics();
         }
 
@@ -34,8 +34,8 @@
         void ExecHashMapTests()
         {
             HashMapTester linkedListTester = new HashMapTester();
-            linkedListTester.RunDataStructureTest();
-            //linkedListTester.RunDataStructuresStatistics();
+            //linkedListTester.RunDataStructureTest();
+            linkedListTester.RunDataStructuresStatistics();
         }
     }
 }

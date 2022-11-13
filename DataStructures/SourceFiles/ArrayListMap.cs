@@ -20,10 +20,10 @@ namespace DataStructures
         {
             for (int i = 0; i != entries.Count(); i++)
             {
-                if(entries.Get(i).key.Equals(key))
+                if (entries.Get(i).key.Equals(key))
                 {
                     return true;
-                }    
+                }
             }
 
             return false;
@@ -102,7 +102,7 @@ namespace DataStructures
         /// <param name="key">Key to remove</param>
         public void UnSet(TKey key)
         {
-            if(Contains(key))
+            if (Contains(key))
             {
                 for (int i = 0; i != entries.Count(); i++)
                 {

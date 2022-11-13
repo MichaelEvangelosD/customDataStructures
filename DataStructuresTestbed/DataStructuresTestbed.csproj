@@ -1,18 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net472</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
-    <StartupObject>DataStructuresTestbed.DataTestbed</StartupObject>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
-    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net48</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<StartupObject>DataStructuresTestbed.DataTestbed</StartupObject>
+		<AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DataStructures\DataStructures.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\DataStructures\DataStructures.csproj" />
+	</ItemGroup>
 
 </Project>

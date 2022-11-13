@@ -5,11 +5,11 @@ namespace DataStructuresTestbed
 {
     public class LinkedListTester
     {
-        static LinkedList<int> linkedList;
+        static DataStructures.LinkedList<int> linkedList;
 
         public void RunDataStructureTest()
         {
-            linkedList = new LinkedList<int>();
+            linkedList = new DataStructures.LinkedList<int>();
 
             linkedList.Add(2);
             linkedList.Add(1);
@@ -42,6 +42,8 @@ namespace DataStructuresTestbed
 
         public void RunDataStructuresStatistics()
         {
+            linkedList = new LinkedList<int>();
+
             int reps;
             long then, now, elapsed;
             double elapsedMsPerCall;
