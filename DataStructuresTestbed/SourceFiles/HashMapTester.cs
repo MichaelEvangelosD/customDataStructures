@@ -31,24 +31,6 @@ namespace DataStructuresTestbed
             long then, now, elapsed;
             double elapsedMsPerCall;
 
-            /*            map = new HashMap<int, int>(999863);
-
-                        reps = 1000000;
-                        then = DateTime.Now.Ticks;
-                        for (int i = 0; i != reps; i++)
-                        {
-                            map.Set(i, i);
-                        }
-                        now = DateTime.Now.Ticks;
-                        elapsed = now - then;
-                        elapsedMsPerCall = elapsed / 10000.0 / reps;
-                        Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
-
-                        Console.WriteLine("MapCount: {0}", map.Count());
-
-                        Console.WriteLine(map.InternalStats());
-            */
-
             map = new HashMap<int, int>();
 
             reps = 1;
@@ -61,6 +43,7 @@ namespace DataStructuresTestbed
             elapsed = now - then;
             elapsedMsPerCall = elapsed / 10000.0 / reps;
             Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+            Console.WriteLine(map.InternalStats());
 
             map = new HashMap<int, int>();
             reps = 10;
@@ -73,6 +56,7 @@ namespace DataStructuresTestbed
             elapsed = now - then;
             elapsedMsPerCall = elapsed / 10000.0 / reps;
             Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+            Console.WriteLine(map.InternalStats());
 
             map = new HashMap<int, int>();
             reps = 100;
@@ -85,6 +69,7 @@ namespace DataStructuresTestbed
             elapsed = now - then;
             elapsedMsPerCall = elapsed / 10000.0 / reps;
             Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+            Console.WriteLine(map.InternalStats());
 
             map = new HashMap<int, int>();
             reps = 1000;
@@ -97,6 +82,7 @@ namespace DataStructuresTestbed
             elapsed = now - then;
             elapsedMsPerCall = elapsed / 10000.0 / reps;
             Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+            Console.WriteLine(map.InternalStats());
 
             map = new HashMap<int, int>();
             reps = 10000;
@@ -109,6 +95,7 @@ namespace DataStructuresTestbed
             elapsed = now - then;
             elapsedMsPerCall = elapsed / 10000.0 / reps;
             Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+            Console.WriteLine(map.InternalStats());
 
             map = new HashMap<int, int>();
             reps = 100000;
@@ -121,6 +108,7 @@ namespace DataStructuresTestbed
             elapsed = now - then;
             elapsedMsPerCall = elapsed / 10000.0 / reps;
             Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+            Console.WriteLine(map.InternalStats());
 
             map = new HashMap<int, int>();
             reps = 1000000;
@@ -133,6 +121,7 @@ namespace DataStructuresTestbed
             elapsed = now - then;
             elapsedMsPerCall = elapsed / 10000.0 / reps;
             Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+            Console.WriteLine(map.InternalStats());
 
             map = new HashMap<int, int>();
             reps = 10000000;
@@ -145,6 +134,7 @@ namespace DataStructuresTestbed
             elapsed = now - then;
             elapsedMsPerCall = elapsed / 10000.0 / reps;
             Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+            Console.WriteLine(map.InternalStats());
 
             map = new HashMap<int, int>();
             reps = 100000000;
@@ -157,6 +147,7 @@ namespace DataStructuresTestbed
             elapsed = now - then;
             elapsedMsPerCall = elapsed / 10000.0 / reps;
             Console.WriteLine("{0}: {1} ms", reps, elapsedMsPerCall);
+            Console.WriteLine(map.InternalStats());
 
             map = new HashMap<int, int>();
             reps = 1000000000;

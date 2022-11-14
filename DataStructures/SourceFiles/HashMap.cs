@@ -131,6 +131,8 @@ namespace DataStructures
 
             for (int i = 0; i < data.Length; i++)
             {
+                if (data[i] == null) continue;
+
                 value = data[i];
 
                 if (value.Count < min)
@@ -144,9 +146,9 @@ namespace DataStructures
                 }
             }
 
-            median = (min + max) / data.Length;
+            median = (max + min) / 2;
 
-            return $"Min: {min} + Max {max}";
+            return $"Min: {min} + Max {max} + Median {median}";
         }
 
         public override string ToString()
