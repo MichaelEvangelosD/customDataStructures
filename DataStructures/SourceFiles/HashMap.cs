@@ -47,7 +47,7 @@ namespace DataStructures
 
         public void UnSet(TKey key)
         {
-            uint hash = (uint)((uint)(key.GetHashCode()) % data.Length);
+            uint hash = (uint)((uint)key.GetHashCode() % data.Length);
 
             if (data[hash] != null)
             {
@@ -87,14 +87,28 @@ namespace DataStructures
             throw new Exception();
         }
 
-        public TKey[] GetKeys(TValue value)
-        {
-            throw new NotImplementedException();
-        }
-
         public TKey[] GetKeys()
         {
-            throw new NotImplementedException();
+            List<TKey> allKeys = new List<TKey>();
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                // TODO
+            }
+
+            return allKeys.ToArray();
+        }
+
+        public TKey[] GetKeys(TValue value)
+        {
+            List<TKey> allKeys = new List<TKey>();
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                // TODO
+            }
+
+            return allKeys.ToArray();
         }
 
         public bool Contains(TKey key)
